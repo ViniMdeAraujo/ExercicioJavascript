@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios em JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .exercise-container {
+            margin-bottom: 40px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .exercise-container h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="exercise-container">
+        <h2>1. Mostrado em um alert no início da pagina.</h2>
+        <script>
+            var valor1 = 10;
+            var valor2 = 100;
+
+            var soma = valor1 + valor2;
+            var subtracao = valor2 - valor1;
+            var divisao = valor2 / valor1;
+            var multiplicacao = valor1 * valor2;
+
+            alert("Soma: " + soma + "\nSubtração: " + subtracao + "\nDivisão: " + divisao + "\nMultiplicação: " + multiplicacao);
+        </script>
+    </div>
+
+    <div class="exercise-container">
+        <h2>2.</h2>
+        <script>
+            document.write("<p>Valores de 10 a 100:</p>");
+            for (var i = 10; i <= 100; i++) {
+                document.write(i + "<br>");
+            }
+        </script>
+    </div>
+
+    <div class="exercise-container">
+        <h2>3.</h2>
+        <script>
+            var numeroFixo = 5;
+            document.write("<p>Tabuada do número " + numeroFixo + ":</p>");
+            for (var i = 1; i <= 10; i++) {
+                document.write(numeroFixo + " x " + i + " = " + (numeroFixo * i) + "<br>");
+            }
+        </script>
+    </div>
+
+    <div class="exercise-container">
+        <h2>4.</h2>
+        <script>
+            function calcularTabuada() {
+                var numero = parseInt(document.getElementById("numero").value);
+                document.getElementById("tabuada").innerHTML = "";
+                document.getElementById("tabuada").innerHTML = "<p>Tabuada do número " + numero + ":</p>";
+                for (var i = 1; i <= 10; i++) {
+                    document.getElementById("tabuada").innerHTML += numero + " x " + i + " = " + (numero * i) + "<br>";
+                }
+            }
+        </script>
+        <input type="number" id="numero" placeholder="Digite um número">
+        <button onclick="calcularTabuada()">Mostrar Tabuada</button>
+        <div id="tabuada"></div>
+    </div>
+
+    <div class="exercise-container">
+        <h2>5.</h2>
+        <script>
+            function calcular() {
+                var valor1 = parseFloat(document.getElementById("valor1").value);
+                var valor2 = parseFloat(document.getElementById("valor2").value);
+                var operacao = document.getElementById("operacao").value;
+                var resultado;
+
+                switch (operacao) {
+                    case "+":
+                        resultado = valor1 + valor2;
+                        break;
+                    case "-":
+                        resultado = valor1 - valor2;
+                        break;
+                    case "*":
+                        resultado = valor1 * valor2;
+                        break;
+                    case "/":
+                        resultado = valor1 / valor2;
+                        break;
+                    default:
+                        resultado = "Operação inválida";
+                }
+
+                document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+            }
+        </script>
+        <h2>Calculadora</h2>
+        <input type="number" id="valor1" placeholder="Digite o primeiro valor">
+        <select id="operacao">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" id="valor2" placeholder="Digite o segundo valor">
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+    </div>
+
+    <div class="exercise-container">
+        <h2>6.</h2>
+        <script>
+            var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            document.write("<p>Valores pares do array:</p>");
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] % 2 === 0) {
+                    document.write(array[i] + "<br>");
+                }
+            }
+        </script>
+    </div>
+
+    <div class="exercise-container">
+        <h2>7.</h2>
+        <script>
+            function calcularCusto() {
+                var custoFabrica = parseFloat(document.getElementById("custoFabrica").value);
+                var percDistribuidor = parseFloat(document.getElementById("percDistribuidor").value) / 100;
+                var percImpostos = parseFloat(document.getElementById("percImpostos").value) / 100;
+
+                var custoFinal = custoFabrica + (custoFabrica * percDistribuidor) + (custoFabrica * percImpostos);
+
+                document.getElementById("valorfinal").value = custoFinal.toFixed(2);
+            }
+        </script>
+        <h2>Custo de Carro</h2>
+        <label for="custoFabrica">Custo de Fábrica:</label>
+        <input type="number" id="custoFabrica" placeholder="Digite o custo de fábrica">
+        <label for="percDistribuidor">% Distribuidor:</label>
+        <input type="number" id="percDistribuidor" placeholder="Digite o percentual do distribuidor">
+        <label for="percImpostos">% Impostos:</label>
+        <input type="number" id="percImpostos" placeholder="Digite o percentual de impostos">
+        <button onclick="calcularCusto()">Calcular</button>
+        <input type="text" id="valorfinal" placeholder="Valor final" readonly>
+    </div>
+
+</body>
+
+</html>
